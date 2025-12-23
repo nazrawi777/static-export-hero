@@ -17,6 +17,16 @@ import ecoverdeHq from '@/assets/projects/ecoverde-hq.jpg';
 import helixTower from '@/assets/projects/helix-tower.jpg';
 import coastalMedical from '@/assets/projects/coastal-medical.jpg';
 
+// Sample video URLs (using reliable public domain sample videos)
+const SAMPLE_VIDEOS = {
+  construction1: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+  construction2: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+  construction3: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+  timelapse1: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+  timelapse2: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+  drone1: 'https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
+};
+
 export const PROJECTS: Project[] = [
   {
     id: '1',
@@ -27,6 +37,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: 'High-Rise',
     media: [
       { id: '1a', type: 'image', src: skylineTower, alt: 'Skyline Tower One - 85-story glass skyscraper with cyan LED accents at night', aspectRatio: 0.8 },
+      { id: '1b', type: 'video', src: SAMPLE_VIDEOS.construction1, thumbnail: skylineTower, alt: 'Skyline Tower construction timelapse', aspectRatio: 1.78 },
     ],
   },
   {
@@ -37,7 +48,8 @@ export const PROJECTS: Project[] = [
     category: 'high-rise',
     categoryLabel: 'High-Rise',
     media: [
-      { id: '2a', type: 'image', src: azureHeights, alt: 'Azure Heights - Modern residential towers with vertical gardens', aspectRatio: 0.8 },
+      { id: '2a', type: 'video', src: SAMPLE_VIDEOS.timelapse1, thumbnail: azureHeights, alt: 'Azure Heights drone flythrough', aspectRatio: 1.78 },
+      { id: '2b', type: 'image', src: azureHeights, alt: 'Azure Heights - Modern residential towers with vertical gardens', aspectRatio: 0.8 },
     ],
   },
   {
@@ -49,6 +61,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: 'Villas & Residential',
     media: [
       { id: '3a', type: 'image', src: palmOasisVilla, alt: 'Palm Oasis Villa - Luxury modern villa with infinity pool overlooking Pacific ocean', aspectRatio: 1.33 },
+      { id: '3b', type: 'video', src: SAMPLE_VIDEOS.construction2, thumbnail: palmOasisVilla, alt: 'Palm Oasis Villa construction progress', aspectRatio: 1.78 },
     ],
   },
   {
@@ -71,6 +84,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: 'Commercial & Offices',
     media: [
       { id: '5a', type: 'image', src: nexusHub, alt: 'Nexus Business Hub - Glass curtain wall office building with green terraces', aspectRatio: 0.8 },
+      { id: '5b', type: 'video', src: SAMPLE_VIDEOS.timelapse2, thumbnail: nexusHub, alt: 'Nexus Hub construction timelapse', aspectRatio: 1.78 },
     ],
   },
   {
@@ -81,7 +95,8 @@ export const PROJECTS: Project[] = [
     category: 'commercial-offices',
     categoryLabel: 'Commercial & Offices',
     media: [
-      { id: '6a', type: 'image', src: techPark, alt: 'Tech Park Central - Industrial modern innovation hub with exposed steel', aspectRatio: 1.33 },
+      { id: '6a', type: 'video', src: SAMPLE_VIDEOS.construction3, thumbnail: techPark, alt: 'Tech Park Central aerial tour', aspectRatio: 1.78 },
+      { id: '6b', type: 'image', src: techPark, alt: 'Tech Park Central - Industrial modern innovation hub with exposed steel', aspectRatio: 1.33 },
     ],
   },
   {
@@ -93,6 +108,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: 'Hospitality & Hotels',
     media: [
       { id: '7a', type: 'image', src: marinaResort, alt: 'Grand Marina Resort - Tropical beachfront resort with thatched villas', aspectRatio: 1.33 },
+      { id: '7b', type: 'video', src: SAMPLE_VIDEOS.drone1, thumbnail: marinaResort, alt: 'Grand Marina Resort drone tour', aspectRatio: 1.78 },
     ],
   },
   {
@@ -115,6 +131,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: 'Healthcare',
     media: [
       { id: '9a', type: 'image', src: metroHospital, alt: 'Metro General Hospital - State-of-the-art medical facility with healing gardens', aspectRatio: 1.33 },
+      { id: '9b', type: 'video', src: SAMPLE_VIDEOS.construction1, thumbnail: metroHospital, alt: 'Metro Hospital construction progress', aspectRatio: 1.78 },
     ],
   },
   {
@@ -136,7 +153,8 @@ export const PROJECTS: Project[] = [
     category: 'infrastructure',
     categoryLabel: 'Infrastructure',
     media: [
-      { id: '11a', type: 'image', src: crossBayBridge, alt: 'Cross-Bay Bridge - Cable-stayed bridge spanning bay at sunset', aspectRatio: 1.6 },
+      { id: '11a', type: 'video', src: SAMPLE_VIDEOS.timelapse1, thumbnail: crossBayBridge, alt: 'Cross-Bay Bridge construction timelapse', aspectRatio: 1.78 },
+      { id: '11b', type: 'image', src: crossBayBridge, alt: 'Cross-Bay Bridge - Cable-stayed bridge spanning bay at sunset', aspectRatio: 1.6 },
     ],
   },
   {
@@ -148,6 +166,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: 'Industrial',
     media: [
       { id: '12a', type: 'image', src: logisticsCenter, alt: 'Global Logistics Center - Automated port facility with crane systems', aspectRatio: 1.33 },
+      { id: '12b', type: 'video', src: SAMPLE_VIDEOS.construction2, thumbnail: logisticsCenter, alt: 'Logistics Center operations video', aspectRatio: 1.78 },
     ],
   },
   {
@@ -159,6 +178,7 @@ export const PROJECTS: Project[] = [
     categoryLabel: 'Sustainable & Green',
     media: [
       { id: '13a', type: 'image', src: ecoverdeHq, alt: 'EcoVerde Headquarters - Biophilic office with living walls and solar panels', aspectRatio: 1.0 },
+      { id: '13b', type: 'video', src: SAMPLE_VIDEOS.timelapse2, thumbnail: ecoverdeHq, alt: 'EcoVerde sustainable features tour', aspectRatio: 1.78 },
     ],
   },
   {
@@ -171,6 +191,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     media: [
       { id: '14a', type: 'image', src: helixTower, alt: 'The Helix Tower - Twisted spiral skyscraper illuminated at night', aspectRatio: 0.7 },
+      { id: '14b', type: 'video', src: SAMPLE_VIDEOS.drone1, thumbnail: helixTower, alt: 'Helix Tower drone showcase', aspectRatio: 1.78 },
     ],
   },
   {

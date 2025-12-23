@@ -10,6 +10,16 @@
   // ============================================
   // Project Data
   // ============================================
+  // Sample video URLs for demonstration
+  const SAMPLE_VIDEOS = {
+    construction1: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    construction2: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+    construction3: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    timelapse1: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    timelapse2: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+    drone1: 'https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
+  };
+
   const PROJECTS = [
     {
       id: '1',
@@ -19,7 +29,8 @@
       category: 'high-rise',
       categoryLabel: 'High-Rise',
       media: [
-        { id: '1a', type: 'image', src: 'assets/images/skyline-tower.jpg', alt: 'Skyline Tower One - 85-story glass skyscraper with cyan LED accents at night', aspectRatio: 0.8 }
+        { id: '1a', type: 'image', src: 'assets/images/skyline-tower.jpg', alt: 'Skyline Tower One - 85-story glass skyscraper with cyan LED accents at night', aspectRatio: 0.8 },
+        { id: '1b', type: 'video', src: SAMPLE_VIDEOS.construction1, thumbnail: 'assets/images/skyline-tower.jpg', alt: 'Skyline Tower construction timelapse', aspectRatio: 1.78 }
       ]
     },
     {
@@ -30,7 +41,8 @@
       category: 'high-rise',
       categoryLabel: 'High-Rise',
       media: [
-        { id: '2a', type: 'image', src: 'assets/images/azure-heights.jpg', alt: 'Azure Heights - Modern residential towers with vertical gardens', aspectRatio: 0.8 }
+        { id: '2a', type: 'video', src: SAMPLE_VIDEOS.timelapse1, thumbnail: 'assets/images/azure-heights.jpg', alt: 'Azure Heights drone flythrough', aspectRatio: 1.78 },
+        { id: '2b', type: 'image', src: 'assets/images/azure-heights.jpg', alt: 'Azure Heights - Modern residential towers with vertical gardens', aspectRatio: 0.8 }
       ]
     },
     {
@@ -41,7 +53,8 @@
       category: 'villas-residential',
       categoryLabel: 'Villas & Residential',
       media: [
-        { id: '3a', type: 'image', src: 'assets/images/palm-oasis-villa.jpg', alt: 'Palm Oasis Villa - Luxury modern villa with infinity pool', aspectRatio: 1.33 }
+        { id: '3a', type: 'image', src: 'assets/images/palm-oasis-villa.jpg', alt: 'Palm Oasis Villa - Luxury modern villa with infinity pool', aspectRatio: 1.33 },
+        { id: '3b', type: 'video', src: SAMPLE_VIDEOS.construction2, thumbnail: 'assets/images/palm-oasis-villa.jpg', alt: 'Palm Oasis Villa construction progress', aspectRatio: 1.78 }
       ]
     },
     {
@@ -63,7 +76,8 @@
       category: 'commercial-offices',
       categoryLabel: 'Commercial & Offices',
       media: [
-        { id: '5a', type: 'image', src: 'assets/images/nexus-hub.jpg', alt: 'Nexus Business Hub - Glass office building with green terraces', aspectRatio: 0.8 }
+        { id: '5a', type: 'image', src: 'assets/images/nexus-hub.jpg', alt: 'Nexus Business Hub - Glass office building with green terraces', aspectRatio: 0.8 },
+        { id: '5b', type: 'video', src: SAMPLE_VIDEOS.timelapse2, thumbnail: 'assets/images/nexus-hub.jpg', alt: 'Nexus Hub construction timelapse', aspectRatio: 1.78 }
       ]
     },
     {
@@ -74,7 +88,8 @@
       category: 'commercial-offices',
       categoryLabel: 'Commercial & Offices',
       media: [
-        { id: '6a', type: 'image', src: 'assets/images/tech-park.jpg', alt: 'Tech Park Central - Industrial modern innovation hub', aspectRatio: 1.33 }
+        { id: '6a', type: 'video', src: SAMPLE_VIDEOS.construction3, thumbnail: 'assets/images/tech-park.jpg', alt: 'Tech Park Central aerial tour', aspectRatio: 1.78 },
+        { id: '6b', type: 'image', src: 'assets/images/tech-park.jpg', alt: 'Tech Park Central - Industrial modern innovation hub', aspectRatio: 1.33 }
       ]
     },
     {
@@ -85,7 +100,8 @@
       category: 'hospitality-hotels',
       categoryLabel: 'Hospitality & Hotels',
       media: [
-        { id: '7a', type: 'image', src: 'assets/images/marina-resort.jpg', alt: 'Grand Marina Resort - Tropical beachfront resort', aspectRatio: 1.33 }
+        { id: '7a', type: 'image', src: 'assets/images/marina-resort.jpg', alt: 'Grand Marina Resort - Tropical beachfront resort', aspectRatio: 1.33 },
+        { id: '7b', type: 'video', src: SAMPLE_VIDEOS.drone1, thumbnail: 'assets/images/marina-resort.jpg', alt: 'Grand Marina Resort drone tour', aspectRatio: 1.78 }
       ]
     },
     {
@@ -107,7 +123,8 @@
       category: 'healthcare',
       categoryLabel: 'Healthcare',
       media: [
-        { id: '9a', type: 'image', src: 'assets/images/metro-hospital.jpg', alt: 'Metro General Hospital - State-of-the-art medical facility', aspectRatio: 1.33 }
+        { id: '9a', type: 'image', src: 'assets/images/metro-hospital.jpg', alt: 'Metro General Hospital - State-of-the-art medical facility', aspectRatio: 1.33 },
+        { id: '9b', type: 'video', src: SAMPLE_VIDEOS.construction1, thumbnail: 'assets/images/metro-hospital.jpg', alt: 'Metro Hospital construction progress', aspectRatio: 1.78 }
       ]
     },
     {
@@ -129,7 +146,8 @@
       category: 'infrastructure',
       categoryLabel: 'Infrastructure',
       media: [
-        { id: '11a', type: 'image', src: 'assets/images/cross-bay-bridge.jpg', alt: 'Cross-Bay Bridge - Cable-stayed bridge at sunset', aspectRatio: 1.6 }
+        { id: '11a', type: 'video', src: SAMPLE_VIDEOS.timelapse1, thumbnail: 'assets/images/cross-bay-bridge.jpg', alt: 'Cross-Bay Bridge construction timelapse', aspectRatio: 1.78 },
+        { id: '11b', type: 'image', src: 'assets/images/cross-bay-bridge.jpg', alt: 'Cross-Bay Bridge - Cable-stayed bridge at sunset', aspectRatio: 1.6 }
       ]
     },
     {
@@ -140,7 +158,8 @@
       category: 'industrial',
       categoryLabel: 'Industrial',
       media: [
-        { id: '12a', type: 'image', src: 'assets/images/logistics-center.jpg', alt: 'Global Logistics Center - Automated port facility', aspectRatio: 1.33 }
+        { id: '12a', type: 'image', src: 'assets/images/logistics-center.jpg', alt: 'Global Logistics Center - Automated port facility', aspectRatio: 1.33 },
+        { id: '12b', type: 'video', src: SAMPLE_VIDEOS.construction2, thumbnail: 'assets/images/logistics-center.jpg', alt: 'Logistics Center operations video', aspectRatio: 1.78 }
       ]
     },
     {
@@ -151,7 +170,8 @@
       category: 'sustainable-green',
       categoryLabel: 'Sustainable & Green',
       media: [
-        { id: '13a', type: 'image', src: 'assets/images/ecoverde-hq.jpg', alt: 'EcoVerde Headquarters - Biophilic office building', aspectRatio: 1.0 }
+        { id: '13a', type: 'image', src: 'assets/images/ecoverde-hq.jpg', alt: 'EcoVerde Headquarters - Biophilic office building', aspectRatio: 1.0 },
+        { id: '13b', type: 'video', src: SAMPLE_VIDEOS.timelapse2, thumbnail: 'assets/images/ecoverde-hq.jpg', alt: 'EcoVerde sustainable features tour', aspectRatio: 1.78 }
       ]
     },
     {
@@ -163,7 +183,8 @@
       categoryLabel: 'Iconic & Landmark',
       featured: true,
       media: [
-        { id: '14a', type: 'image', src: 'assets/images/helix-tower.jpg', alt: 'The Helix Tower - Twisted spiral skyscraper at night', aspectRatio: 0.7 }
+        { id: '14a', type: 'image', src: 'assets/images/helix-tower.jpg', alt: 'The Helix Tower - Twisted spiral skyscraper at night', aspectRatio: 0.7 },
+        { id: '14b', type: 'video', src: SAMPLE_VIDEOS.drone1, thumbnail: 'assets/images/helix-tower.jpg', alt: 'Helix Tower drone showcase', aspectRatio: 1.78 }
       ]
     },
     {
@@ -381,6 +402,7 @@
     const media = project.media[0];
     const isVideo = media?.type === 'video';
     const aspectRatio = media?.aspectRatio || 1;
+    const posterSrc = isVideo ? (media.thumbnail || '') : media.src;
 
     return `
       <article 
@@ -398,16 +420,27 @@
           <figure class="card-media" style="aspect-ratio: ${aspectRatio}">
             <div class="card-skeleton"></div>
             ${isVideo ? `
+              <!-- Poster image shown by default -->
+              <img 
+                src="${posterSrc}"
+                alt="${media.alt}"
+                class="video-poster"
+                loading="lazy"
+                onload="this.previousElementSibling.style.display='none'"
+              />
+              <!-- Video plays on hover -->
               <video 
                 src="${media.src}" 
-                poster="${media.thumbnail || ''}"
+                poster="${posterSrc}"
                 muted 
                 loop 
                 playsinline
+                class="video-hover"
                 aria-hidden="true"
               ></video>
+              <!-- Play icon overlay - always visible for video cards -->
               <div class="video-play-overlay">
-                <div class="play-icon">${icons.play}</div>
+                <div class="play-icon-large">${icons.play}</div>
               </div>
             ` : `
               <img 
@@ -590,13 +623,10 @@
               <button 
                 class="lightbox-thumb ${idx === state.currentMediaIndex ? 'active' : ''}"
                 data-index="${idx}"
-                aria-label="Go to media ${idx + 1}"
+                aria-label="Go to ${m.type === 'video' ? 'video' : 'image'} ${idx + 1}"
               >
-                ${m.type === 'video' ? `
-                  <div class="thumb-video">${icons.play}</div>
-                ` : `
-                  <img src="${m.thumbnail || m.src}" alt="" loading="lazy" />
-                `}
+                <img src="${m.thumbnail || m.src}" alt="" loading="lazy" />
+                ${m.type === 'video' ? `<div class="thumb-video-overlay">${icons.play}</div>` : ''}
               </button>
             `).join('')}
           </div>

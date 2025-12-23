@@ -278,25 +278,24 @@ const Lightbox: React.FC<LightboxProps> = ({ project, isOpen, onClose }) => {
                   setCurrentIndex(idx);
                 }}
                 className={cn(
-                  'flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden transition-all duration-300',
+                  'relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden transition-all duration-300',
                   idx === currentIndex
                     ? 'ring-2 ring-primary glow-primary'
                     : 'opacity-60 hover:opacity-100'
                 )}
-                aria-label={`Go to media ${idx + 1}`}
+                aria-label={`Go to ${media.type === 'video' ? 'video' : 'image'} ${idx + 1}`}
                 aria-current={idx === currentIndex ? 'true' : 'false'}
               >
-                {media.type === 'video' ? (
-                  <div className="w-full h-full bg-muted flex items-center justify-center">
-                    <Play className="w-4 h-4 text-primary" />
+                <img
+                  src={media.thumbnail || media.src}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                {media.type === 'video' && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-background/40">
+                    <Play className="w-4 h-4 text-primary" fill="currentColor" />
                   </div>
-                ) : (
-                  <img
-                    src={media.thumbnail || media.src}
-                    alt=""
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
                 )}
               </button>
             ))}

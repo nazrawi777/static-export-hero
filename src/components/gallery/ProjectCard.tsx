@@ -85,6 +85,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {/* Image or Video Thumbnail */}
           {isVideo ? (
             <>
+              {/* Poster image shown by default */}
+              <img
+                src={thumbnail.thumbnail || thumbnail.src}
+                alt={thumbnail.alt || project.title}
+                loading="lazy"
+                className={cn(
+                  'absolute inset-0 w-full h-full object-cover transition-all duration-700',
+                  isHovering ? 'opacity-0' : 'opacity-100',
+                  isImageLoaded ? 'visible' : 'invisible'
+                )}
+                onLoad={() => setIsImageLoaded(true)}
+              />
+              {/* Video plays on hover */}
               <video
                 ref={videoRef}
                 src={thumbnail.src}
@@ -94,16 +107,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 playsInline
                 className={cn(
                   'w-full h-full object-cover transition-all duration-700',
-                  isHovering ? 'scale-110' : 'scale-100',
-                  isImageLoaded ? 'opacity-100' : 'opacity-0'
+                  isHovering ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
                 )}
                 onLoadedData={() => setIsImageLoaded(true)}
                 aria-hidden="true"
               />
-              {/* Play icon overlay */}
-              <div className="video-play-overlay">
-                <div className="play-icon">
-                  <Play className="w-6 h-6 text-primary ml-1" fill="currentColor" />
+              {/* Play icon overlay - always visible for video cards */}
+              <div className={cn(
+                "absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300",
+                isHovering ? "opacity-0" : "opacity-100"
+              )}>
+                <div className="w-16 h-16 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center border border-primary/30 shadow-lg">
+                  <Play className="w-7 h-7 text-primary ml-1" fill="currentColor" />
                 </div>
               </div>
             </>
