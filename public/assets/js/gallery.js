@@ -385,10 +385,8 @@
     // Load more button
     if (hasMore) {
       elements.loadMoreContainer.style.display = 'flex';
-      elements.loadMoreBtn.innerHTML = `
-        Load More Projects
-        <span class="load-more-count">(${filtered.length - state.visibleCount} remaining)</span>
-      `;
+     elements.loadMoreBtn.innerHTML = `Load More Projects`;
+      
       elements.loadMoreBtn.disabled = false;
     } else {
       elements.loadMoreContainer.style.display = 'none';
