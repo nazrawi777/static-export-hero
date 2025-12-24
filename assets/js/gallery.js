@@ -21,20 +21,9 @@
   };
 
   const PROJECTS = [
+    
     {
       id: '1',
-      title: 'Skyline Tower One',
-      location: 'Dubai, UAE',
-      year: 2024,
-      category: 'high-rise',
-      categoryLabel: 'High-Rise',
-      media: [
-        { id: '1a', type: 'image', src: 'assets/images/skyline-tower.jpg', alt: 'Skyline Tower One - 85-story glass skyscraper with cyan LED accents at night', aspectRatio: 0.8 },
-        { id: '1b', type: 'video', src: SAMPLE_VIDEOS.construction1, thumbnail: 'assets/images/skyline-tower.jpg', alt: 'Skyline Tower construction timelapse', aspectRatio: 1.78 }
-      ]
-    },
-    {
-      id: '2',
       title: 'Azure Heights Complex',
       location: 'Singapore',
       year: 2023,
@@ -42,89 +31,7 @@
       categoryLabel: 'High-Rise',
       media: [
         { id: '2a', type: 'video', src: SAMPLE_VIDEOS.timelapse1, thumbnail: 'assets/images/azure-heights.jpg', alt: 'Azure Heights drone flythrough', aspectRatio: 1.78 },
-        { id: '2b', type: 'image', src: 'assets/images/azure-heights.jpg', alt: 'Azure Heights - Modern residential towers with vertical gardens', aspectRatio: 0.8 }
-      ]
-    },
-    {
-      id: '3',
-      title: 'Palm Oasis Villa',
-      location: 'Malibu, USA',
-      year: 2024,
-      category: 'villas-residential',
-      categoryLabel: 'Villas & Residential',
-      media: [
-        { id: '3a', type: 'image', src: 'assets/images/palm-oasis-villa.jpg', alt: 'Palm Oasis Villa - Luxury modern villa with infinity pool', aspectRatio: 1.33 },
-        { id: '3b', type: 'video', src: SAMPLE_VIDEOS.construction2, thumbnail: 'assets/images/palm-oasis-villa.jpg', alt: 'Palm Oasis Villa construction progress', aspectRatio: 1.78 }
-      ]
-    },
-    {
-      id: '4',
-      title: 'Serenity Estate',
-      location: 'Monaco',
-      year: 2023,
-      category: 'villas-residential',
-      categoryLabel: 'Villas & Residential',
-      media: [
-        { id: '4a', type: 'image', src: 'assets/images/serenity-estate.jpg', alt: 'Serenity Estate - Mediterranean luxury mansion', aspectRatio: 1.0 }
-      ]
-    },
-    {
-      id: '5',
-      title: 'Nexus Business Hub',
-      location: 'London, UK',
-      year: 2024,
-      category: 'commercial-offices',
-      categoryLabel: 'Commercial & Offices',
-      media: [
-        { id: '5a', type: 'image', src: 'assets/images/nexus-hub.jpg', alt: 'Nexus Business Hub - Glass office building with green terraces', aspectRatio: 0.8 },
-        { id: '5b', type: 'video', src: SAMPLE_VIDEOS.timelapse2, thumbnail: 'assets/images/nexus-hub.jpg', alt: 'Nexus Hub construction timelapse', aspectRatio: 1.78 }
-      ]
-    },
-    {
-      id: '6',
-      title: 'Tech Park Central',
-      location: 'Berlin, Germany',
-      year: 2022,
-      category: 'commercial-offices',
-      categoryLabel: 'Commercial & Offices',
-      media: [
-        { id: '6a', type: 'video', src: SAMPLE_VIDEOS.construction3, thumbnail: 'assets/images/tech-park.jpg', alt: 'Tech Park Central aerial tour', aspectRatio: 1.78 },
-        { id: '6b', type: 'image', src: 'assets/images/tech-park.jpg', alt: 'Tech Park Central - Industrial modern innovation hub', aspectRatio: 1.33 }
-      ]
-    },
-    {
-      id: '7',
-      title: 'Grand Marina Resort',
-      location: 'Bali, Indonesia',
-      year: 2024,
-      category: 'hospitality-hotels',
-      categoryLabel: 'Hospitality & Hotels',
-      media: [
-        { id: '7a', type: 'image', src: 'assets/images/marina-resort.jpg', alt: 'Grand Marina Resort - Tropical beachfront resort', aspectRatio: 1.33 },
-        { id: '7b', type: 'video', src: SAMPLE_VIDEOS.drone1, thumbnail: 'assets/images/marina-resort.jpg', alt: 'Grand Marina Resort drone tour', aspectRatio: 1.78 }
-      ]
-    },
-    {
-      id: '8',
-      title: 'Alpine Luxury Lodge',
-      location: 'Zermatt, Switzerland',
-      year: 2023,
-      category: 'hospitality-hotels',
-      categoryLabel: 'Hospitality & Hotels',
-      media: [
-        { id: '8a', type: 'image', src: 'assets/images/alpine-lodge.jpg', alt: 'Alpine Luxury Lodge - Swiss chalet with mountain views', aspectRatio: 1.33 }
-      ]
-    },
-    {
-      id: '9',
-      title: 'Metro General Hospital',
-      location: 'Toronto, Canada',
-      year: 2024,
-      category: 'healthcare',
-      categoryLabel: 'Healthcare',
-      media: [
-        { id: '9a', type: 'image', src: 'assets/images/metro-hospital.jpg', alt: 'Metro General Hospital - State-of-the-art medical facility', aspectRatio: 1.33 },
-        { id: '9b', type: 'video', src: SAMPLE_VIDEOS.construction1, thumbnail: 'assets/images/metro-hospital.jpg', alt: 'Metro Hospital construction progress', aspectRatio: 1.78 }
+        
       ]
     },
     {

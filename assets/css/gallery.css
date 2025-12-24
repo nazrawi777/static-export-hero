@@ -321,6 +321,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  display: none;
 }
 
 .filter-scroll-btn {
@@ -578,6 +579,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Category Badge */
 .card-badge {
   position: absolute;
+  display: none;
   top: 0.75rem;
   left: 0.75rem;
   z-index: 2;
@@ -679,6 +681,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Card Content */
 .card-content {
   padding: 1rem;
+  display: none;
 }
 
 .card-title {
