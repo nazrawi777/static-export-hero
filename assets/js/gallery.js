@@ -24,11 +24,6 @@
     
     {
       id: '1',
-      title: 'Azure Heights Complex',
-      location: 'Singapore',
-      year: 2023,
-      category: 'high-rise',
-      categoryLabel: 'High-Rise',
       media: [
         { id: '2a', type: 'video', src: SAMPLE_VIDEOS.timelapse1, thumbnail: 'assets/images/azure-heights.jpg', alt: 'Azure Heights drone flythrough', aspectRatio: 1.78 },
         
@@ -514,13 +509,7 @@
           <button class="lightbox-nav lightbox-next" aria-label="Next media">${icons.chevronRight}</button>
         ` : ''}
 
-        <div class="lightbox-info">
-          <h2 class="lightbox-title">${project.title}</h2>
-          <div class="lightbox-meta">
-            <span class="lightbox-meta-item">${icons.mapPin} ${project.location}</span>
-            <span class="lightbox-meta-item">${icons.calendar} ${project.year}</span>
-          </div>
-        </div>
+        
 
         ${totalMedia > 1 ? `
           <div class="lightbox-thumbnails">
