@@ -38,18 +38,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid hsla(185, 100%, 50%, 0.3);
+  border: 1px solid hsla(207, 88%, 58%, 0.3);
   box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.5);
 }
 
 .play-icon-large svg {
   width: 1.75rem;
   height: 1.75rem;
-  color: hsl(185, 100%, 50%);
+  color: hsl(207, 88%, 58%);
   margin-left: 4px;
 }
 
-.lightbox-thumb { position: relative; }
+.lightbox-thumb { position: relative;
+ }
 
 .thumb-video-overlay {
   position: absolute;
@@ -63,7 +64,8 @@
 .thumb-video-overlay svg {
   width: 1rem;
   height: 1rem;
-  color: hsl(185, 100%, 50%);
+ color: hsl(207, 88%, 58%);
+
 }
 
 /* CSS Custom Properties / Design Tokens */
@@ -75,9 +77,9 @@
   --card-foreground: hsl(210, 40%, 98%);
 
   /* Primary - Cyber Cyan */
-  --primary: hsl(185, 100%, 50%);
+  --primary: hsl(207, 88%, 58%);
   --primary-foreground: hsl(220, 20%, 4%);
-  --primary-glow: hsl(185, 100%, 60%);
+  --primary-glow: hsl(207, 88%, 65%);
 
   /* Secondary - Metallic Silver */
   --secondary: hsl(220, 15%, 18%);
@@ -87,32 +89,31 @@
   --muted-foreground: hsl(215, 20%, 55%);
 
   /* Accent - Electric Teal */
-  --accent: hsl(175, 80%, 45%);
+  --accent: hsl(207, 88%, 58%);
   --accent-foreground: hsl(220, 20%, 4%);
 
   --border: hsl(220, 20%, 18%);
-  --ring: hsl(185, 100%, 50%);
+  --ring: hsl(207, 88%, 58%);
   --radius: 0.75rem;
 
   /* Glassmorphism */
-  --glass-bg: hsla(220, 25%, 10%, 0.6);
+ --glass-bg: hsla(220, 30%, 12%, 0.7);
   --glass-border: hsla(220, 20%, 30%, 0.3);
   --glass-blur: 16px;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, hsl(185, 100%, 50%), hsl(175, 80%, 45%));
-  --gradient-glow: radial-gradient(ellipse at center, hsla(185, 100%, 50%, 0.15), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, hsl(207, 88%, 58%), hsl(207, 88%, 58%));
+  --gradient-glow: radial-gradient(ellipse at center, hsla(207, 88%, 58%, 0.15), transparent 70%);
   --gradient-dark: linear-gradient(180deg, hsl(220, 20%, 6%), hsl(220, 20%, 2%));
 
   /* Shadows */
-  --shadow-glow: 0 0 30px hsla(185, 100%, 50%, 0.3);
-  --shadow-glow-intense: 0 0 50px hsla(185, 100%, 50%, 0.5);
+--shadow-glow: 0 0 30px hsla(207, 88%, 58%, 0.3);
+--shadow-glow-intense: 0 0 50px hsla(207, 88%, 58%);
   --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.4);
   --shadow-card-hover: 0 16px 48px hsla(0, 0%, 0%, 0.6);
 
-  /* Typography */
-  --font-display: 'Orbitron', 'Exo 2', system-ui, sans-serif;
-  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+ 
+  
 
   /* Transitions */
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -127,7 +128,7 @@
     --foreground: hsl(220, 20%, 10%);
     --card: hsl(0, 0%, 100%);
     --card-foreground: hsl(220, 20%, 10%);
-    --primary: hsl(185, 100%, 40%);
+    --primary: hsl(207, 88%, 58%);
     --primary-foreground: hsl(0, 0%, 100%);
     --secondary: hsl(220, 15%, 92%);
     --muted: hsl(220, 15%, 95%);
@@ -147,19 +148,11 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
 
 body {
-  font-family: var(--font-body);
+  
   background: var(--gradient-dark);
-  color: var(--foreground);
-  line-height: 1.6;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
 }
 
 /* Reduced motion preference */
@@ -176,27 +169,31 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+  
   font-weight: 700;
   line-height: 1.2;
 }
 
 /* Utility Classes */
-.container {
+.container222 {
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin-top: 130px;
   padding: 0 1rem;
+}
+.container222 h1{
+  text-align: center;
+  color: var(--primary)
 }
 
 @media (min-width: 640px) {
-  .container {
+  .container222 {
     padding: 0 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .container {
+  .container222 {
     padding: 0 2rem;
   }
 }
@@ -222,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-glow {
-  text-shadow: 0 0 20px hsla(185, 100%, 50%, 0.5);
+  text-shadow: 0 0 20px hsla(207, 88%, 58%, 0.5);
 }
 
 /* Glassmorphism Card */
@@ -425,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
 .filter-btn.active {
   color: var(--primary);
   background: hsla(185, 100%, 50%, 0.1);
-  border-color: hsla(185, 100%, 50%, 0.5);
+  border-color: hsla(207, 88%, 58%, 0.5);
   box-shadow: var(--shadow-glow);
 }
 
@@ -645,7 +642,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   background: hsla(0, 0%, 0%, 0.3);
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
   z-index: 2;
 }
@@ -685,7 +682,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-title {
-  font-family: var(--font-display);
+  
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--foreground);
@@ -718,7 +715,7 @@ h1, h2, h3, h4, h5, h6 {
 .card-meta-item svg {
   width: 0.875rem;
   height: 0.875rem;
-  color: hsla(185, 100%, 50%, 0.7);
+  color: hsla(207, 88%, 58%, 0.7);
 }
 
 /* ============================================
@@ -736,14 +733,14 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.75rem;
   padding: 1rem 2rem;
   border-radius: 9999px;
-  font-family: var(--font-display);
+  
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: var(--glass-bg);
   backdrop-filter: blur(8px);
-  border: 1px solid hsla(185, 100%, 50%, 0.3);
+  border: 1px solid hsla(207, 88%, 58%, 0.3);
   color: var(--primary);
   cursor: pointer;
   transition: var(--transition-smooth);
@@ -751,7 +748,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .load-more-btn:hover {
   box-shadow: var(--shadow-glow);
-  border-color: hsla(185, 100%, 50%, 0.6);
+  border-color: hsla(207, 88%, 58%, 0.6);
 }
 
 .load-more-btn:focus-visible {
@@ -772,7 +769,7 @@ h1, h2, h3, h4, h5, h6 {
 .loading-spinner {
   width: 1.25rem;
   height: 1.25rem;
-  border: 2px solid hsla(185, 100%, 50%, 0.3);
+  border: 2px solid hsla(207, 88%, 58%, 0.3);
   border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -817,7 +814,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .empty-title {
-  font-family: var(--font-display);
+  
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--foreground);
@@ -828,13 +825,20 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--muted-foreground);
   max-width: 24rem;
 }
-
 /* ============================================
-   Lightbox Modal
+   Compact Lightbox Modal (CSS only)
    ============================================ */
+
+/* Overlay container (centered modal) */
 .lightbox {
   position: fixed;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;       /* custom width */
+  height: 65vh;      /* custom height */
+  max-width: 72rem;
+  max-height: 85vh;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -852,98 +856,171 @@ h1, h2, h3, h4, h5, h6 {
   visibility: visible;
 }
 
+/* Backdrop covers full viewport */
 .lightbox-backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   cursor: pointer;
+  background: hsla(220, 20%, 2%, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
+/* Content panel inside modal */
 .lightbox-content {
   position: relative;
-  z-index: 10;
+  z-index: 101;
   width: 100%;
+  height: 110%;
   max-width: 72rem;
+  max-height: 120%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(10,12,16,0.9);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
-/* Close & Fullscreen Buttons */
-.lightbox-close,
-.lightbox-fullscreen {
-  position: absolute;
-  top: 1rem;
-  z-index: 50;
-  padding: 0.75rem;
-  border-radius: 50%;
-  background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  color: var(--foreground);
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-
-.lightbox-close {
-  right: 1rem;
-}
-
-.lightbox-fullscreen {
-  right: 4.5rem;
-}
-
-.lightbox-close:hover,
-.lightbox-fullscreen:hover {
-  box-shadow: var(--shadow-glow);
-}
-
-.lightbox-close:focus-visible,
-.lightbox-fullscreen:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-.lightbox-close svg,
-.lightbox-fullscreen svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-/* Media Display */
+/* Media Display (compact) */
 .lightbox-media {
-  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius);
+  height: 80%; /* smaller height for compact mode */
+  border-radius: 8px;
   overflow: hidden;
   background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-media img,
 .lightbox-media video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: opacity 0.3s;
 }
 
-.lightbox-loading {
+/* Close & Fullscreen buttons */
+.lightbox-close,
+.lightbox-fullscreen {
   position: absolute;
-  inset: 0;
+  top: 0.6rem;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--foreground);
+  cursor: pointer;
+  z-index: 102;
+}
+
+.lightbox-close { right: 0.6rem; }
+.lightbox-fullscreen { right: 4rem; }
+
+/* Thumbnail strip */
+.lightbox-thumbnails {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.3rem 0.2rem;
+  width: 100%;
+}
+
+.lightbox-thumb {
+  flex: 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0.7;
+  cursor: pointer;
+  border: none;
   background: var(--muted);
 }
 
-.lightbox-loading .loading-spinner {
-  width: 3rem;
-  height: 3rem;
-  border-width: 4px;
+.lightbox-thumb.active {
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.lightbox-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info / title / meta */
+.lightbox-info {
+  width: 100%;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+.lightbox-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--foreground);
+}
+
+.lightbox-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Navigation arrows */
+.lightbox-nav {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--foreground);
+  cursor: pointer;
+  z-index: 102;
+}
+
+.lightbox-prev { left: 0.5rem; }
+.lightbox-next { right: 0.5rem; }
+
+/* Video controls */
+.video-controls {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  gap: 0.4rem;
+  z-index: 102;
+}
+.video-controls button {
+  padding: 0.4rem;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .lightbox { width: 90vw; height: 70vh; }
+  .lightbox-media { height: 48%; }
+  .lightbox-thumb { width: 2.5rem; height: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+  .lightbox { width: 96vw; height: 75vh; }
+  .lightbox-media { height: 45%; }
+  .lightbox-thumb { width: 2rem; height: 2rem; }
 }
 
 /* Video Controls */
@@ -1016,16 +1093,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Project Info */
 .lightbox-info {
-  margin-top: 1.5rem;
+  margin-top: 0.85rem;
   text-align: center;
 }
 
 .lightbox-title {
-  font-family: var(--font-display);
+  
   font-size: clamp(1.25rem, 4vw, 1.875rem);
   font-weight: 700;
   color: var(--foreground);
-  text-shadow: 0 0 20px hsla(185, 100%, 50%, 0.5);
+  text-shadow: 0 0 20px hsla(207, 88%, 58%, 0.5);
   margin-bottom: 0.75rem;
 }
 
@@ -1053,9 +1130,11 @@ h1, h2, h3, h4, h5, h6 {
 .lightbox-thumbnails {
   display: flex;
   gap: 0.5rem;
-  margin-top: 1.5rem;
-  overflow-x: auto;
-  padding: 0.5rem 0.25rem;
+  position: relative;
+  bottom: 10px;
+  overflow: hidden;
+  height:100px;
+  padding: 0rem 0.25rem;
   max-width: 100%;
   scrollbar-width: thin;
   scrollbar-color: hsla(215, 20%, 55%, 0.5) transparent;
