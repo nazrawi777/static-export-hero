@@ -9,7 +9,7 @@
   // ============================================
   // 1. DATA CONFIGURATION
   // ============================================
-  const RELEASE_URL = 'https://github.com/nazrawi777/static-export-hero/releases/download/v1.0/';
+  const RELEASE_URL = 'https://cold-poetry-8926.nazrawigirma598.workers.dev/';
 
   const CAT_KEYS = [
     'high-rise', 'villas-residential', 'commercial-offices', 
@@ -156,6 +156,8 @@
     }
 
     elements.galleryGrid.innerHTML = visible.map((p, i) => createProjectCard(p, i)).join('');
+    // Lazy-load video sources when cards become visible
+    setupVideoLazyLoad();
     setupScrollReveal();
     if (!prefersReducedMotion()) setupTiltEffect();
 
@@ -176,7 +178,7 @@
             <div class="card-skeleton"></div>
             ${isVideo ? `
               <img src="${media.thumbnail}" class="video-poster" onload="this.previousElementSibling.style.display='none'">
-              <video src="${media.src}" muted loop playsinline class="video-hover"></video>
+              <video data-src="${media.src}" muted loop playsinline class="video-hover" preload="metadata"></video>
               <div class="video-play-overlay"><div class="play-icon-large">${icons.play}</div></div>
             ` : `<img src="${media.src}" onload="this.previousElementSibling.style.display='none'">`}
             <div class="card-overlay"><span class="view-details-btn">${icons.eye} View Details</span></div>
@@ -290,6 +292,22 @@
       });
       card.addEventListener('mouseleave', () => card.style.transform = ``);
     });
+  }
+
+  // Lazy-load helper for video sources
+  function setupVideoLazyLoad() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const video = entry.target.querySelector('video[data-src]');
+        if (video && !video.src) {
+          video.src = video.dataset.src;
+        }
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '200px 0px 200px 0px' });
+
+    document.querySelectorAll('.gallery-item').forEach(el => observer.observe(el));
   }
 
   function init() {
