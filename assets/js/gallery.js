@@ -1,6 +1,6 @@
 /**
  * Grade 1 Construction Gallery - Static JavaScript
- * Updated with Video Progress Bar and Time Tracking
+ * Updated with Rearranged Video Order (7-19 first, 1-6 last)
  */
 
 (function () {
@@ -17,9 +17,10 @@
     'infrastructure', 'industrial', 'sustainable-green', 'iconic-landmark'
   ];
 
-  const PROJECTS = Array.from({ length: 19 }, (_, i) => {
-    const id = (i + 1).toString();
-    const catIndex = i % CAT_KEYS.length;
+  // Helper function to create a project object
+  const createProjectObj = (index) => {
+    const id = (index + 1).toString();
+    const catIndex = index % CAT_KEYS.length;
     
     return {
       id: id,
@@ -33,25 +34,20 @@
         type: 'video',
         src: `${RELEASE_URL}${id}.mp4`,     
         thumbnail: `${RELEASE_URL}${id}.jpg`, 
-       
         aspectRatio: 1.33
       }]
     };
-  });
+  };
 
-  const CATEGORIES = [
-    { id: 'all', label: 'All' },
-    { id: 'high-rise', label: 'High-Rise Buildings' },
-    { id: 'villas-residential', label: 'Villas & Residential' },
-    { id: 'commercial-offices', label: 'Commercial & Offices' },
-    { id: 'hospitality-hotels', label: 'Hospitality & Hotels' },
-    { id: 'healthcare', label: 'Healthcare' },
-    { id: 'education', label: 'Education' },
-    { id: 'infrastructure', label: 'Infrastructure' },
-    { id: 'industrial', label: 'Industrial' },
-    { id: 'sustainable-green', label: 'Sustainable & Green' },
-    { id: 'iconic-landmark', label: 'Iconic & Landmark' }
-  ];
+  // REARRANGED LOGIC: 7 to 19 first, then 1 to 6
+  const groupA = Array.from({ length: 13 }, (_, i) => createProjectObj(i + 6)); // IDs 7-19
+  const groupB = Array.from({ length: 6 }, (_, i) => createProjectObj(i));      // IDs 1-6
+
+  const PROJECTS = [...groupA, ...groupB];
+
+  // ============================================
+  // 2. STATE & RENDER LOGIC (Remaining code stays the same)
+  // ============================================
 
   let state = {
     activeCategory: 'all',
@@ -94,7 +90,20 @@
     loader: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="loading-spinner"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>'
   };
 
-  // Helper for video formatting
+  const CATEGORIES = [
+    { id: 'all', label: 'All' },
+    { id: 'high-rise', label: 'High-Rise Buildings' },
+    { id: 'villas-residential', label: 'Villas & Residential' },
+    { id: 'commercial-offices', label: 'Commercial & Offices' },
+    { id: 'hospitality-hotels', label: 'Hospitality & Hotels' },
+    { id: 'healthcare', label: 'Healthcare' },
+    { id: 'education', label: 'Education' },
+    { id: 'infrastructure', label: 'Infrastructure' },
+    { id: 'industrial', label: 'Industrial' },
+    { id: 'sustainable-green', label: 'Sustainable & Green' },
+    { id: 'iconic-landmark', label: 'Iconic & Landmark' }
+  ];
+
   function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -127,18 +136,6 @@
         renderGallery();
       });
     });
-    updateScrollButtons();
-  }
-
-  function updateScrollButtons() {
-    if (!elements.filterList) return;
-    const { scrollLeft, scrollWidth, clientWidth } = elements.filterList;
-    if (elements.filterScrollLeft) elements.filterScrollLeft.classList.toggle('visible', scrollLeft > 0);
-    if (elements.filterScrollRight) elements.filterScrollRight.classList.toggle('visible', scrollLeft < scrollWidth - clientWidth - 10);
-  }
-
-  function scrollFilters(direction) {
-    elements.filterList.scrollBy({ left: direction === 'left' ? -200 : 200, behavior: 'smooth' });
   }
 
   function getFilteredProjects() {
@@ -156,7 +153,6 @@
     }
 
     elements.galleryGrid.innerHTML = visible.map((p, i) => createProjectCard(p, i)).join('');
-    // Lazy-load video sources when cards become visible
     setupVideoLazyLoad();
     setupScrollReveal();
     if (!prefersReducedMotion()) setupTiltEffect();
@@ -187,9 +183,6 @@
       </article>`;
   }
 
-  // ============================================
-  // Lightbox & Video Progress Logic
-  // ============================================
   function openLightbox(projectId) {
     const project = PROJECTS.find(p => p.id === projectId);
     if (!project) return;
@@ -209,11 +202,9 @@
   function renderLightbox() {
     const project = state.selectedProject;
     if (!project) return;
-
     const media = project.media[state.currentMediaIndex];
     const isVideo = media?.type === 'video';
 
-    // Added progress-container and time-display to your existing structure
     elements.lightbox.innerHTML = `
       <div class="lightbox-backdrop"></div>
       <button class="lightbox-close">${icons.x}</button>
@@ -237,11 +228,9 @@
       </div>
     `;
 
-    // Re-bind basic events
     $('.lightbox-close', elements.lightbox).addEventListener('click', closeLightbox);
     $('.lightbox-backdrop', elements.lightbox).addEventListener('click', closeLightbox);
 
-    // Video specific logic
     if (isVideo) {
       const video = $('video', elements.lightbox);
       const playPauseBtn = $('.video-play-pause', elements.lightbox);
@@ -274,7 +263,6 @@
     }
   }
 
-  // Remaining Utilities
   function setupScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
@@ -294,19 +282,15 @@
     });
   }
 
-  // Lazy-load helper for video sources
   function setupVideoLazyLoad() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const video = entry.target.querySelector('video[data-src]');
-        if (video && !video.src) {
-          video.src = video.dataset.src;
-        }
+        if (video && !video.src) video.src = video.dataset.src;
         observer.unobserve(entry.target);
       });
     }, { rootMargin: '200px 0px 200px 0px' });
-
     document.querySelectorAll('.gallery-item').forEach(el => observer.observe(el));
   }
 
