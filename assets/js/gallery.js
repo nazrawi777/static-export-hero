@@ -142,7 +142,20 @@
   }
 
   function getFilteredProjects() {
-    return state.activeCategory === 'all' ? PROJECTS : PROJECTS.filter(p => p.category === state.activeCategory);
+    const largeIds = ['1','2','3','4','5','6']; // treat these as large; they will appear last
+    const filtered = state.activeCategory === 'all'
+      ? PROJECTS.slice() // copy to avoid mutating original
+      : PROJECTS.filter(p => p.category === state.activeCategory);
+
+    // Sort: non-large first, then large; stable sort by id inside each group
+    filtered.sort((a, b) => {
+      const aIsLarge = largeIds.includes(a.id) ? 1 : 0;
+      const bIsLarge = largeIds.includes(b.id) ? 1 : 0;
+      if (aIsLarge !== bIsLarge) return aIsLarge - bIsLarge;
+      return Number(a.id) - Number(b.id);
+    });
+
+    return filtered;
   }
 
   function renderGallery() {
@@ -328,3 +341,4 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+```0
