@@ -1,0 +1,145 @@
+(function () {
+  'use strict';
+
+  // ============================================
+  // 1. Configuration
+  // ============================================
+  
+  // This is where both Videos AND Images live now
+  const RELEASE_URL = 'https://github.com/nazrawi777/static-export-hero/releases/download/v1.0/';
+  
+  // Generate 19 Projects
+  const PROJECTS = Array.from({ length: 19 }, (_, i) => {
+    const id = (i + 1).toString();
+    return {
+      id: id,
+      media: [{
+        src: `${RELEASE_URL}${id}.mp4`,   // Video Link
+        thumbnail: `${RELEASE_URL}${id}.jpg`, // Image Link (FIXED)
+        alt: `Video ${id}`
+      }]
+    };
+  });
+
+  let state = {
+    visibleCount: 19, // Show all immediately
+    itemsPerPage: 19,
+    selectedProject: null
+  };
+
+  const icons = {
+    play: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="white" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));"><polygon points="5 3 19 12 5 21 5 3"/></svg>',
+    x: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
+  };
+
+  const $ = (selector, context = document) => context.querySelector(selector);
+  const $$ = (selector, context = document) => [...context.querySelectorAll(selector)];
+  let elements = {};
+
+  // ============================================
+  // 2. Main Logic
+  // ============================================
+
+  function renderGallery() {
+    if (!elements.galleryGrid) return;
+    
+    elements.galleryGrid.innerHTML = PROJECTS.map((project, index) => createProjectCard(project, index)).join('');
+    
+    // Add Click Listeners
+    $$('.project-card', elements.galleryGrid).forEach(card => {
+      card.addEventListener('click', () => openLightbox(card.dataset.projectId));
+    });
+
+    // Hide load more button since we show all
+    if (elements.loadMoreContainer) elements.loadMoreContainer.style.display = 'none';
+    if (elements.resultsCount) elements.resultsCount.style.display = 'none';
+  }
+
+  function createProjectCard(project, index) {
+    const media = project.media[0];
+    return `
+      <article class="gallery-item" style="animation-delay: ${index * 50}ms; margin-bottom: 0;">
+        <div class="project-card reveal visible" data-project-id="${project.id}" style="cursor: pointer; overflow: hidden; border-radius: 8px;">
+          <figure class="card-media" style="aspect-ratio: 1.78; margin: 0; position: relative;">
+            
+            <img src="${media.thumbnail}" alt="${media.alt}" loading="lazy" 
+                 style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                 onerror="this.src='https://via.placeholder.com/640x360?text=Image+Not+Found'">
+            
+            <div class="card-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              ${icons.play}
+            </div>
+
+          </figure>
+          </div>
+      </article>
+    `;
+  }
+
+  // ============================================
+  // 3. Lightbox
+  // ============================================
+
+  function openLightbox(projectId) {
+    const project = PROJECTS.find(p => p.id === projectId);
+    if (!project) return;
+    
+    elements.lightbox.innerHTML = `
+      <div class="lightbox-backdrop" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9998;"></div>
+      <button class="lightbox-close" style="position:fixed; top:20px; right:20px; z-index:9999; background:none; border:none; color:white; cursor:pointer;">${icons.x}</button>
+      
+      <div class="lightbox-content" style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:90%; max-width:1200px; z-index:9999;">
+        <video 
+          src="${project.media[0].src}" 
+          poster="${project.media[0].thumbnail}" 
+          controls 
+          autoplay 
+          style="width: 100%; max-height: 80vh; background: black; box-shadow: 0 20px 50px rgba(0,0,0,0.5);"
+        ></video>
+      </div>
+    `;
+
+    elements.lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    $('.lightbox-close', elements.lightbox).addEventListener('click', closeLightbox);
+    $('.lightbox-backdrop', elements.lightbox).addEventListener('click', closeLightbox);
+  }
+
+  function closeLightbox() {
+    elements.lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    elements.lightbox.innerHTML = '';
+  }
+
+  // ============================================
+  // 4. Init
+  // ============================================
+
+  function init() {
+    elements = {
+      galleryGrid: $('#gallery-grid'),
+      loadMoreContainer: $('#load-more-container'),
+      resultsCount: $('#results-count'),
+      lightbox: $('#lightbox')
+    };
+
+    renderGallery();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+
+/* Add this to your CSS */
+.project-card:hover .card-overlay {
+  opacity: 1 !important;
+}
+.project-card:hover img {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
